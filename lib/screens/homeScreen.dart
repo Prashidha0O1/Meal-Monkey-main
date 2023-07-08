@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../const/colors.dart';
 import '../utils/helper.dart';
 import '../widgets/customNavBar.dart';
@@ -30,7 +29,7 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         Text(
                           "Good morning Prashidha",
-                          style: Helper.getTheme(context).headline5,
+                          style: Helper.getTheme(context).headlineSmall,
                         ),
                         Image.asset(Helper.getAssetName("cart.png", "virtual"))
                       ],
@@ -64,7 +63,7 @@ class HomeScreen extends StatelessWidget {
                             Helper.getAssetName(
                                 "dropdown_filled.png", "virtual"),
                           ),
-                          style: Helper.getTheme(context).headline4,
+                          style: Helper.getTheme(context).headlineMedium,
                           onChanged: (_) {},
                         ),
                       ),
@@ -156,7 +155,7 @@ class HomeScreen extends StatelessWidget {
                       Helper.getAssetName("pizza2.jpg", "real"),
                       fit: BoxFit.cover,
                     ),
-                    name: "Minute by tuk tuk",
+                    name: "Mitho Thakali",
                   ),
                   RestaurantCard(
                     image: Image.asset(
@@ -170,7 +169,7 @@ class HomeScreen extends StatelessWidget {
                       Helper.getAssetName("bakery.jpg", "real"),
                       fit: BoxFit.cover,
                     ),
-                    name: "Bakes by Tella",
+                    name: "UG Cakes",
                   ),
                   SizedBox(
                     height: 50,
@@ -182,7 +181,7 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         Text(
                           "Most Popular",
-                          style: Helper.getTheme(context).headline5,
+                          style: Helper.getTheme(context).headlineSmall,
                         ),
                         TextButton(
                           onPressed: () {},
@@ -233,7 +232,7 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         Text(
                           "Recent Items",
-                          style: Helper.getTheme(context).headline5,
+                          style: Helper.getTheme(context).headlineSmall,
                         ),
                         TextButton(
                           onPressed: () {},
@@ -258,7 +257,7 @@ class HomeScreen extends StatelessWidget {
                               Helper.getAssetName("pizza3.jpg", "real"),
                               fit: BoxFit.cover,
                             ),
-                            name: "Mulberry Pizza by Josh",
+                            name: "Pepe Pizza",
                           ),
                         ),
                         RecentItemCard(
@@ -329,7 +328,7 @@ class RecentItemCard extends StatelessWidget {
                 Text(
                   _name,
                   style: Helper.getTheme(context)
-                      .headline4
+                      .headlineMedium
                       ?.copyWith(color: AppColor.primary),
                 ),
                 Row(

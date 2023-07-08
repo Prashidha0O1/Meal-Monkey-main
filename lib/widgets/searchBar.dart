@@ -4,8 +4,9 @@ import 'package:monkey_app_demo/utils/helper.dart';
 
 class SearchBar extends StatelessWidget {
   final String title;
-  // ignore: non_constant_identifier_names
-  SearchBar({required this.title, required String Title});
+
+  SearchBar({required this.title});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -13,25 +14,34 @@ class SearchBar extends StatelessWidget {
       child: Container(
         height: 50,
         width: double.infinity,
-        decoration: ShapeDecoration(
-          shape: StadiumBorder(),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(25),
           color: AppColor.placeholderBg,
         ),
-        child: TextField(
-          decoration: InputDecoration(
-            border: InputBorder.none,
-            prefixIcon: Image.asset(
+        child: Row(
+          children: [
+            SizedBox(width: 15),
+            Image.asset(
               Helper.getAssetName("search_filled.png", "virtual"),
-            ),
-            hintText: title,
-            hintStyle: TextStyle(
+              width: 20,
+              height: 20,
               color: AppColor.placeholder,
-              fontSize: 18,
             ),
-            contentPadding: const EdgeInsets.only(
-              top: 17,
+            SizedBox(width: 10),
+            Expanded(
+              child: TextField(
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: title,
+                  hintStyle: TextStyle(
+                    color: AppColor.placeholder,
+                    fontSize: 18,
+                  ),
+                  contentPadding: EdgeInsets.zero,
+                ),
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );

@@ -28,6 +28,6 @@ This is our complete food delivery app, where I will share with you how you can 
 => Bottom Navigation Bar
 
 
-Thanks for your love and support 🙏 
+ 
 
 

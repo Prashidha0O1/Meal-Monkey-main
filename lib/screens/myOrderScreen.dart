@@ -137,23 +137,23 @@ class MyOrderScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         BurgerCard(
-                          price: "16",
+                          price: "160",
                           name: "Beef Burger",
                         ),
                         BurgerCard(
-                          price: "14",
+                          price: "140",
                           name: "Classic Burger",
                         ),
                         BurgerCard(
-                          price: "17",
+                          price: "170",
                           name: "Cheese Chicken Burger",
                         ),
                         BurgerCard(
-                          price: "15",
+                          price: "150",
                           name: "Chicken Legs Basket",
                         ),
                         BurgerCard(
-                          price: "6",
+                          price: "60",
                           name: "French Fries Large",
                           isLast: true,
                         ),
@@ -213,7 +213,7 @@ class MyOrderScreen extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "\$68",
+                            "\Rs.680",
                             style: Helper.getTheme(context).headline3!.copyWith(
                                   color: AppColor.orange,
                                 ),
@@ -232,7 +232,7 @@ class MyOrderScreen extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "\$2",
+                            "\Rs20",
                             style: Helper.getTheme(context).headline3!.copyWith(
                                   color: AppColor.orange,
                                 ),
@@ -258,7 +258,7 @@ class MyOrderScreen extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "\$70",
+                            "\Rs700",
                             style: Helper.getTheme(context).headline3?.copyWith(
                                   color: AppColor.orange,
                                   fontSize: 22,
@@ -334,7 +334,7 @@ class BurgerCard extends StatelessWidget {
             ),
           ),
           Text(
-            "\$$_price",
+            "\Rs.$_price",
             style: TextStyle(
               color: AppColor.primary,
               fontSize: 16,

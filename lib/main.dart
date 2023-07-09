@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:monkey_app_demo/screens/changeAddressScreen.dart';
-
 import './screens/spashScreen.dart';
 import './screens/landingScreen.dart';
 import './screens/loginScreen.dart';
@@ -33,7 +32,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'FOOD DELIVERY APP',
       theme: ThemeData(
         fontFamily: "Metropolis",
         primarySwatch: Colors.red,

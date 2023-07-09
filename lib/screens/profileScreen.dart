@@ -85,7 +85,7 @@ class ProfileScreen extends StatelessWidget {
                         height: 10,
                       ),
                       Text(
-                        "Hi there Emilia!",
+                        "Hi there Prashidha!",
                         style:
                             Helper.getTheme(context).headlineMedium!.copyWith(
                                   color: AppColor.primary,
@@ -100,35 +100,35 @@ class ProfileScreen extends StatelessWidget {
                       ),
                       CustomFormImput(
                         label: "Name",
-                        value: "Emilia Clarke",
+                        value: "Prashidha Rawal",
                       ),
                       SizedBox(
                         height: 20,
                       ),
                       CustomFormImput(
                         label: "Email",
-                        value: "emiliaclarke@email.com",
+                        value: "prashidhakomail@gmail.com",
                       ),
                       SizedBox(
                         height: 20,
                       ),
                       CustomFormImput(
                         label: "Mobile No",
-                        value: "emiliaclarke@email.com",
+                        value: "9869696969",
                       ),
                       SizedBox(
                         height: 20,
                       ),
                       CustomFormImput(
                         label: "Address",
-                        value: "No 23, 6th Lane, Colombo 03",
+                        value: "Balaju, Kathmandu",
                       ),
                       SizedBox(
                         height: 20,
                       ),
                       CustomFormImput(
                         label: "Password",
-                        value: "Emilia Clarke",
+                        value: "asdasd",
                         isPassword: true,
                       ),
                       SizedBox(
@@ -136,7 +136,7 @@ class ProfileScreen extends StatelessWidget {
                       ),
                       CustomFormImput(
                         label: "Confirm Password",
-                        value: "Emilia Clarke",
+                        value: "asdasd",
                         isPassword: true,
                       ),
                       SizedBox(

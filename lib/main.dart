@@ -1,107 +1,100 @@
-import 'package:flutter/material.dart';
-import 'package:monkey_app_demo/screens/changeAddressScreen.dart';
-import './screens/spashScreen.dart';
-import './screens/landingScreen.dart';
-import './screens/loginScreen.dart';
-import './screens/signUpScreen.dart';
-import './screens/forgetPwScreen.dart';
-import './screens/sentOTPScreen.dart';
-import './screens/newPwScreen.dart';
-import './screens/introScreen.dart';
-import './screens/homeScreen.dart';
-import './screens/menuScreen.dart';
-import './screens/moreScreen.dart';
-import './screens/offerScreen.dart';
-import './screens/profileScreen.dart';
-import './screens/dessertScreen.dart';
-import './screens/individualItem.dart';
-import './screens/paymentScreen.dart';
-import './screens/notificationScreen.dart';
-import './screens/aboutScreen.dart';
-import './screens/inboxScreen.dart';
-import './screens/myOrderScreen.dart';
-import './screens/checkoutScreen.dart';
-import './const/colors.dart';
+import 'dart:io';
 
-void main() {
-  runApp(MyApp());
+import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:food_delivery/common/color_extension.dart';
+import 'package:food_delivery/common/locator.dart';
+import 'package:food_delivery/common/service_call.dart';
+import 'package:food_delivery/view/login/welcome_view.dart';
+import 'package:food_delivery/view/main_tabview/main_tabview.dart';
+import 'package:food_delivery/view/on_boarding/startup_view.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'common/globs.dart';
+import 'common/my_http_overrides.dart';
+
+SharedPreferences? prefs;
+void main() async {
+  setUpLocator();
+  HttpOverrides.global = MyHttpOverrides();
+  WidgetsFlutterBinding.ensureInitialized();
+  prefs = await SharedPreferences.getInstance();
+
+  if(Globs.udValueBool(Globs.userLogin)) {
+    ServiceCall.userPayload = Globs.udValue(Globs.userPayload);
+  }
+
+  runApp( const MyApp(defaultHome:  StartupView(),));
 }
 
-class MyApp extends StatelessWidget {
+void configLoading() {
+  EasyLoading.instance
+    ..indicatorType = EasyLoadingIndicatorType.ring
+    ..loadingStyle = EasyLoadingStyle.custom
+    ..indicatorSize = 45.0
+    ..radius = 5.0
+    ..progressColor = TColor.primaryText
+    ..backgroundColor = TColor.primary
+    ..indicatorColor = Colors.yellow
+    ..textColor = TColor.primaryText
+    ..userInteractions = false
+    ..dismissOnTap = false;
+}
+
+class MyApp extends StatefulWidget {
+  final Widget defaultHome;
+  const MyApp({super.key, required this.defaultHome});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'FOOD DELIVERY APP',
+      title: 'Food Delivery',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: "Metropolis",
-        primarySwatch: Colors.red,
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(
-              AppColor.orange,
-            ),
-            shape: MaterialStateProperty.all(
-              StadiumBorder(),
-            ),
-            elevation: MaterialStateProperty.all(0),
-          ),
-        ),
-        textButtonTheme: TextButtonThemeData(
-          style: ButtonStyle(
-            foregroundColor: MaterialStateProperty.all(
-              AppColor.orange,
-            ),
-          ),
-        ),
-        textTheme: TextTheme(
-          displaySmall: TextStyle(
-            color: AppColor.primary,
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
-          headlineMedium: TextStyle(
-            color: AppColor.secondary,
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
-          ),
-          headlineSmall: TextStyle(
-            color: AppColor.primary,
-            fontWeight: FontWeight.normal,
-            fontSize: 25,
-          ),
-          titleLarge: TextStyle(
-            color: AppColor.primary,
-            fontSize: 25,
-          ),
-          bodyMedium: TextStyle(
-            color: AppColor.secondary,
-          ),
-        ),
+        // This is the theme of your application.
+        //
+        // TRY THIS: Try running your application with "flutter run". You'll see
+        // the application has a blue toolbar. Then, without quitting the app,
+        // try changing the seedColor in the colorScheme below to Colors.green
+        // and then invoke "hot reload" (save your changes or press the "hot
+        // reload" button in a Flutter-supported IDE, or press "r" if you used
+        // the command line to start the app).
+        //
+        // Notice that the counter didn't reset back to zero; the application
+        // state is not lost during the reload. To reset the state, use hot
+        // restart instead.
+        //
+        // This works for code too, not just values: Most code changes can be
+        // tested with just a hot reload.
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        // useMaterial3: true,
       ),
-      home: SplashScreen(),
-      routes: {
-        LandingScreen.routeName: (context) => LandingScreen(),
-        LoginScreen.routeName: (context) => LoginScreen(),
-        SignUpScreen.routeName: (context) => SignUpScreen(),
-        ForgetPwScreen.routeName: (context) => ForgetPwScreen(),
-        SendOTPScreen.routeName: (context) => SendOTPScreen(),
-        NewPwScreen.routeName: (context) => NewPwScreen(),
-        IntroScreen.routeName: (context) => IntroScreen(),
-        HomeScreen.routeName: (context) => HomeScreen(),
-        MenuScreen.routeName: (context) => MenuScreen(),
-        OfferScreen.routeName: (context) => OfferScreen(),
-        ProfileScreen.routeName: (context) => ProfileScreen(),
-        MoreScreen.routeName: (context) => MoreScreen(),
-        DessertScreen.routeName: (context) => DessertScreen(),
-        IndividualItem.routeName: (context) => IndividualItem(),
-        PaymentScreen.routeName: (context) => PaymentScreen(),
-        NotificationScreen.routeName: (context) => NotificationScreen(),
-        AboutScreen.routeName: (context) => AboutScreen(),
-        InboxScreen.routeName: (context) => InboxScreen(),
-        MyOrderScreen.routeName: (context) => MyOrderScreen(),
-        CheckoutScreen.routeName: (context) => CheckoutScreen(),
-        ChangeAddressScreen.routeName: (context) => ChangeAddressScreen(),
+      home: widget.defaultHome,
+      navigatorKey: locator<NavigationService>().navigatorKey,
+      onGenerateRoute: (routeSettings){
+        switch (routeSettings.name) {
+          case "welcome":
+              return MaterialPageRoute(builder: (context) => const WelcomeView() );
+          case "Home":
+              return MaterialPageRoute(builder: (context) => const MainTabView() );
+          default:
+              return MaterialPageRoute(builder: (context) => Scaffold(
+                body: Center(
+                  child: Text("No path for ${routeSettings.name}")
+                ),
+              ) );
+        }
+      },
+      builder: (context, child) {
+        return FlutterEasyLoading(child: child);
       },
     );
   }

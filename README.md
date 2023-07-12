@@ -1,33 +1,19 @@
-# Food Delivery App - Flutter UI 
-
-This is our complete food delivery app, where I will share with you how you can create a nice clean screen for your app that can run both Android and iOS devices because it builds with #flutter.
+# Food Delivery App 
 
 
-## Screens it contains:
+UI UX App Design by: [Akila Weerakoon](https://www.behance.net/gallery/108639283/Meal-Monkey-Food-delivery-iOS-mobile-application)
 
-=> Onboarding
+Food Delivery App Project 
 
-=> Login
+## Getting Started
 
-=> Forgot Password
+This project is a starting point for a Flutter application.
 
-=> Sign Up
+A few resources to get you started if this is your first Flutter project:
 
-=> Complete Profile
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-=> OTP Verification
-
-=> Home Page
-
-=> Product Details
-
-=> Order
-
-=> Profile
-
-=> Bottom Navigation Bar
-
-
- 
-
-
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.

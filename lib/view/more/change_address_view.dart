@@ -18,7 +18,7 @@ class _ChangeAddressViewState extends State<ChangeAddressView> {
   GoogleMapController? _controller;
 
   final locations = const [
-    LatLng(37.42796133580664, -122.085749655962),
+    LatLng(27.7172, 85.3240),
   ];
 
   late List<MarkerData> _customMarkers;
